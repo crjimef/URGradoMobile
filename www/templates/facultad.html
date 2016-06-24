@@ -1,0 +1,19 @@
+<ion-view style="" id="page13" title="Facultades y Escuelas">
+    <ion-content padding="true" class="manual-remove-top-padding has-header">
+        <div>
+            <img style="display: block; margin-left: auto; margin-right: auto;" src="{{facultad.thumbnail}}" height="auto" width="100%">
+        </div>
+        <h3>{{facultad.title}}</h3>
+        <div ng-bind-html="html"></div>
+        <div ng-controller="FullscreenImageCtrl">
+            <img style="display: block; margin-left: auto; margin-right: auto;" src="img/mapa.jpg" height="auto" width="100%" ng-click="showImage('img/mapa.jpg')">
+        </div>
+        <script id="image-modal.html" type="text/ng-template">
+            <div class="modal image-modal transparent" ng-click="closeModal()">
+                <ion-pane class="transparent">
+                    <img ng-src="{{imageSrc}}" class="fullscreen-image"/>
+                </ion-pane>
+            </div>
+        </script>
+    </ion-content>
+</ion-view>

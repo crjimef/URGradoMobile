@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ReferenceCachePath>C:\Users\Cristian\AppData\Local\Temp\URGrado_refcache</ReferenceCachePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Windows Phone (Universal)'">
+    <DebuggerFlavor>PhoneDevice81</DebuggerFlavor>
+    <WindowsMobileEmulatorID>20DCA81D-A315-40BC-9B83-B6A01D31DBC6;Emulator 8.1 1080P 6 inch(ES)</WindowsMobileEmulatorID>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Android'">
+    <DebuggerFlavor>RippleNexusS</DebuggerFlavor>
+    <AndroidEmulatorID>AndroidDevice;Dispositivo</AndroidEmulatorID>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Android'">
+    <DebuggerFlavor>RippleNexus</DebuggerFlavor>
+    <AndroidEmulatorID>AndroidDevice;Dispositivo</AndroidEmulatorID>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Windows Phone 8'">
+    <DebuggerFlavor>PhoneEmulatorWxga</DebuggerFlavor>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|iOS'">
+    <DebuggerFlavor>RippleiPhone5</DebuggerFlavor>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Windows-x64'">
+    <DebuggerFlavor>WindowsLocal</DebuggerFlavor>
+  </PropertyGroup>
+</Project>

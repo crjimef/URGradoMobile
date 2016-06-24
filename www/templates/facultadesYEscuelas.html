@@ -1,0 +1,26 @@
+<ion-view style="" id="page10" title="Facultades y Escuelas">
+    <ion-content scroll="false" padding="false" class="manual-remove-top-padding has-header">
+        <div style="" class="list card" ng-show='mensajeError'>
+            <div class="item item-divider">ERROR</div>
+            <div class="item item-body">
+                <img style="display: block; margin-left: 20%; margin-right: 20%;" src="img/error.png" height="auto" width="60%">
+                <p>Ha habido un error al conectar con el servidor, rogamos disculpen las molestias</p>
+            </div>
+            <div class="item item-divider item-icon-left text-center" ng-click='reiniciarFacultades()'><i class="icon ion-refresh"></i>Reintentar</div>
+        </div>
+        <div ng-show='!mensajeError'>
+            <img style="display: block; margin-left: auto; margin-right: auto;" src="img/facultadesyescuelas.jpg" height="auto" width="100%">
+        </div>
+        <div class="list" ng-show='!mensajeError'>
+            <div class="item item-divider">
+                Facultades y escuelas
+            </div>
+        <div ng-repeat="facultad in facultades">
+            <a class="item item-icon-right" href="#/facultadyescuela/:{{facultad.slug}}">
+                {{facultad.title}}
+                <i class="icon ion-ios-arrow-right"></i>
+            </a>
+        </div>
+        </div>
+    </ion-content>
+</ion-view>

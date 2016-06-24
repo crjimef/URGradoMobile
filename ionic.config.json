@@ -1,0 +1,12 @@
+{
+  "name": "URGrado",
+  "app_id": "3c9a049f",
+  "gulpStartupTasks": [
+    "sass",
+    "watch"
+  ],
+  "watchPatterns": [
+    "www/**/*",
+    "!www/lib/**/*"
+  ]
+}

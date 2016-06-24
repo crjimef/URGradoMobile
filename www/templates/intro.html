@@ -1,0 +1,84 @@
+<ion-view style="" id="page89" title="Configuración" left-buttons="leftButtons" right-buttons="rightButtons" hide-back-button="true">
+   
+        <style>
+            .slider {
+                height: 100%;
+            }
+
+            .slider-slide {
+                padding-top: 80px;
+                color: #000;
+                background-color: #fff;
+                text-align: center;
+                font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+                font-weight: 300;
+            }
+
+            #logo {
+                width: 100%;           
+                max-width: 400px;
+                text-align:center;
+                height:auto;
+
+            }
+
+            #list {
+                margin: 30px auto;
+                font-size: 16px;
+            }
+
+                #list ul {
+                    margin-top: 30px;
+                }
+
+                    #list ul li {
+                        text-align: left;
+                        padding-left: 20px;
+                    }
+        </style>
+        <ion-nav-buttons side="left">
+            <button id="leftButtons" type"button-positive button-clear" ng-click="salir()">Omitir</button>
+        </ion-nav-buttons>
+        <ion-nav-buttons side="right">
+            <button id="rightButtons" type"button-positive button-clear" ng-click="next()">Siguiente</button>
+        </ion-nav-buttons>
+
+        <ion-slide-box on-slide-changed="slideChanged(index)" ng-show="verIntro">
+            <ion-slide>
+                <h3>Gracias por elegir URgrado</h3>
+                <div>
+                    <img id="logo" src="img/icon.png">
+                </div>
+                <p style="text-align:center">
+                    Trabajo realizado por y para estudiantes de la Universidad de La Rioja
+                </p>
+            </ion-slide>
+
+            <ion-slide>
+                <h3>Tendrás acceso a información sobre:</h3> 
+                <ul style="text-align:left; padding:10px; margin-left:10px;">
+                    <li> Departamentos</li>
+                    <li> Facultades y escuelas</li>
+                    <li> Estudios de Grado</li>
+                    <li> Asignaturas y guías Docentes</li>
+                    <li> Profesores</li>
+                </ul>
+                <p>
+                    ... Y mucho más, rápidamente y en tu bolsillo
+                </p>
+            </ion-slide>
+
+            <ion-slide>
+                <h3 style="text-align:center">Configuración</h3>
+
+                <div id="list">
+                    <h4 style="text-align:justify;padding:10px">En dos pasos podrás personalizar la aplicación para poder ver información sobre sus asignaturas y su Grado necesidad de conexión a internet</h4>
+                    <ul>
+                        <li> Seleccionar tu Grado</li>
+                        <li> Seleccionar tus asignaturas</li>
+                    </ul>
+                    <button class="button button-full button-positive" ng-click="salir2()">Ir a configuracion</button>
+                </div>
+            </ion-slide>
+        </ion-slide-box>
+</ion-view>

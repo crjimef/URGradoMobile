@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/customize.css" rel="stylesheet">
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+    <!-- cordova script -->
+    <script src="lib/ng-cordova.min.js"></script>
+    <script src="cordova.js"></script>
+
+    <style type="text/css">
+        .platform-ios .manual-ios-statusbar-padding {
+            padding-top: 20px;
+        }
+
+        .manual-remove-top-padding {
+            padding-top: 0;
+        }
+
+            .manual-remove-top-padding .scroll {
+                padding-top: 0 !important;
+            }
+    </style> <!-- Estilos css-->
+    <script src="js/app.js"></script>
+    <script src="js/services.js"></script>
+    <script src="js/controllers.js"></script>
+    <script src="js/routes.js"></script>
+    <script src="js/directives.js"></script>
+    <!-- Only required for Tab projects w/ pages in multiple tabs
+    <script src="lib/ionicuirouter/ionicUIRouter.js"></script>
+    -->
+</head>
+<body ng-app="app" animation="slide-left-right-ios7">
+    <div style="">
+        <ion-side-menus data-componentid="side-menu21" style="" enable-menu-with-back-views="false">
+            <ion-side-menu-content>
+                <ion-nav-bar class="bar-stable">
+                    <ion-nav-back-button>Volver</ion-nav-back-button>
+                    <ion-nav-buttons side="left">
+                        <button class="button button-icon button-clear ion-navicon" menu-toggle="left"></button>
+                    </ion-nav-buttons>
+                </ion-nav-bar>
+                <ion-nav-view></ion-nav-view> <!-- Contenedor de templates-->
+            </ion-side-menu-content>
+            <ion-side-menu style="background-color:#990000;" side="left" id="side-menu21"> <!-- Menú de la APP-->
+                <ion-header-bar class="bar-stable">
+                    <div class="title">UR mobile Grado</div>
+                </ion-header-bar>
+                <ion-content padding="false" class="side-menu-left has-header">
+                    <ion-list data-componentid="list2" style="">
+                        <ion-item data-componentid="list-item1" style="" menu-close="" ui-sref="noticias">Portada</ion-item>
+                        <ion-item data-componentid="list-item-divider2" style="" class="item-divider">Universidad de La Rioja</ion-item>
+                        <ion-item data-componentid="list-item12" style="" menu-close="" ui-sref="facultadesYEscuelas">Facultades y Escuelas</ion-item>
+                        <ion-item data-componentid="list-item2" style="" menu-close="" ui-sref="departamentos">Departamentos</ion-item>
+                        <ion-item data-componentid="list-item3" style="" menu-close="" ui-sref="estudiosDeGrado">Estudios de Grado</ion-item>
+                        <ion-item data-componentid="list-item-divider3" style="" class="item-divider">Servicios</ion-item>
+                        <ion-item data-componentid="list-item5" style="" menu-close="" ui-sref="biblioteca" ui-sref-opts="{reload: true}">Biblioteca</ion-item>
+                        <ion-item data-componentid="list-item6" style="" menu-close="" ui-sref="serviciosDeportivos">Actividades Deportivas</ion-item>
+                        <ion-item data-componentid="list-item-divider4" style="" class="item-divider">Estudiante</ion-item>
+                        <ion-item data-componentid="list-item7" style="" menu-close="" ui-sref="misAsignaturas">Mis asignaturas</ion-item>
+                        <ion-item data-componentid="list-item8" style="" menu-close="" ui-sref="miGrado">Mi Grado</ion-item>
+                        <ion-item data-componentid="list-item10" style="" menu-close="" ui-sref="calendario">Calendario acad&#xE9;mico</ion-item>
+                        <ion-item data-componentid="list-item-divider3" style="" class="item-divider">Opciones</ion-item>
+                        <ion-item data-componentid="list-item5" style="" menu-close="" ui-sref="configuracion">Configurar</ion-item>
+                    </ion-list>
+                </ion-content>
+            </ion-side-menu> <!-- Menú de la APP-->
+        </ion-side-menus>
+    </div>
+</body>
+</html>

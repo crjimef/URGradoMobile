@@ -1,0 +1,106 @@
+<ion-view style="" id="page14" title="Configuración">
+    <ion-content scroll="true" padding="false" class="manual-remove-top-padding has-header">
+        <div style="">
+            <img style="display: block; margin-left: auto; margin-right: auto;" src="img/configuracion.jpg" height="auto" width="100%">
+            
+          <ion-list>
+                <ion-item class="item item-divider" ng-click="showItems(0)">
+                    Número de noticias a mostrar
+                </ion-item>
+                <ion-item class="item item-body">
+                    {{numNoticias}}
+                </ion-item>
+            </ion-list>
+        <ion-list>
+            <ion-item ng-if="!gradoSeleccionado" class="item item-divider" ng-click="showItems(1)">
+                Selecciona tu Grado
+            </ion-item>
+            <ion-item ng-if="gradoSeleccionado" class="item item-divider" ng-click="showItems(1)">
+                Cambiar Grado
+            </ion-item>
+            <ion-item ng-if="gradoSeleccionado" class="item item-body">
+                {{mi_grado.title}}
+            </ion-item>
+        </ion-list>
+        <ion-list ng-if="!asigPrimero.length==0">
+            <ion-item ng-if="!asigPrimero.length==0"class="item item-divider" ng-click="showItems(2)">
+                Asignaturas de primero
+            </ion-item>
+            <ion-list ng-if="!asigPrimero.length==0">
+                <ion-item ng-repeat="asig in asigPrimero" ng-if="asig.checked" class="item item-body">{{asig.asignatura}}</ion-item>
+            </ion-list>
+            <ion-item ng-if="!asigSegundo.length==0" class="item item-divider" ng-click="showItems(3)">
+                Asignaturas de segundo
+            </ion-item>
+            <ion-list ng-if="!asigSegundo.length==0">
+                <ion-item ng-repeat="asig in asigSegundo" ng-if="asig.checked" class="item item-body">{{asig.asignatura}}</ion-item>
+            </ion-list>
+            <ion-item ng-if="!asigTercero.length==0" class="item item-divider" ng-click="showItems(4)">
+                Asignaturas de tercero
+            </ion-item>
+            <ion-list ng-if="!asigTercero.length==0">
+                <ion-item ng-repeat="asig in asigTercero" ng-if="asig.checked" class="item item-body">{{asig.asignatura}}</ion-item>
+            </ion-list>
+            <ion-item ng-if="!asigCuarto.length==0" class="item item-divider" ng-click="showItems(5)">
+                Asignaturas de cuarto
+            </ion-item>
+            <ion-list ng-if="!asigCuarto.length==0">
+                <ion-item ng-repeat="asig in asigCuarto" ng-if="asig.checked" class="item item-body">{{asig.asignatura}}</ion-item>
+            </ion-list>
+            <ion-item ng-if="!asigOptativas.length==0" class="item item-divider" ng-click="showItems(6)">
+                Asignaturas optativas
+            </ion-item>
+            <ion-list ng-if="!asigOptativas.length==0">
+                <ion-item ng-repeat="asig in asigOptativas" ng-if="asig.checked" class="item item-body">{{asig.asignatura}}</ion-item>
+            </ion-list>
+        </ion-list>
+       </div>
+
+        <div style="" class="list card" ng-show='mensajeError'>
+            <div class="item item-divider">ERROR</div>
+            <div class="item item-body">
+                <img style="display: block; margin-left: 20%; margin-right: 20%;" src="img/error.png" height="auto" width="60%">
+                <p>Ha habido un error al conectar con el servidor o no se dispone de información del Grado seleccionado, rogamos disculpe las molestias</p>
+            </div>
+        </div>
+
+        <button class="button button-block button-positive" ng-click="guardarConfiguracion()">
+            Aceptar
+        </button>
+   
+        <script id="fancy-select-items.html" type="text/ng-template">
+            <ion-view class="fancy-select-items modal" cache-view="false">
+                <ion-header-bar class="bar-positive">
+
+                    <button ng-click="closeModal()" class="button button-positive button-icon ion-ios-arrow-back"></button>
+
+                    <h1 class="title">{{headerText}}</h1>
+
+                    <button ng-if="multiSelect" ng-click="validate()" class="button button-positive button-icon ion-checkmark"></button>
+
+                </ion-header-bar>
+                <ion-content>
+                    <div class="list">
+                        <!-- Multi select -->
+                        <ion-toggle ng-repeat="item in items"
+                                    ng-if="multiSelect"
+                                    ng-checked="item.checked"
+                                    ng-model="item.checked"
+                                    class="item item-text-wrap">
+                            {{item.asignatura}}
+                        </ion-toggle>
+
+                        <!-- Single select -->
+                        <label ng-repeat="item in items"
+                               ng-if="!multiSelect"
+                               class="item item-text-wrap"
+                               ng-click='itemSelect(item)'>
+                            {{item.title}}
+                        </label>
+                    </div>
+                </ion-content>
+            </ion-view>
+        </script>
+
+    </ion-content>
+</ion-view>

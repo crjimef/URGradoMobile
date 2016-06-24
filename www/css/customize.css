@@ -1,0 +1,161 @@
+﻿.item {
+    color: black;
+}
+.item-body {
+    padding: 10px;
+    text-align: justify;
+    font-size:14px;
+}
+ol, ul {
+    list-style: disc inside none;
+}
+
+.transparent {
+  background: transparent !important;
+}
+.image-modal {
+  width: 100% !important;
+  height: 100%;
+  top: 0 !important;
+  left: 0 !important;
+}
+.fullscreen-image {
+  max-width: 100%;
+  max-height: 100%;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  overflow: auto;
+  position: fixed;
+  right: 0;
+  top: 0;
+}
+
+/* Fix modal backdrop for smaller devices */
+@media (max-width: 679px) {
+  .active .modal-backdrop-bg {
+    opacity: .5;
+  }
+  .modal-backdrop-bg {
+    -webkit-transition: opacity 300ms ease-in-out;
+    transition: opacity 300ms ease-in-out;
+    background-color: #000;
+    opacity: 0;
+  }
+}
+
+.scrollCanvas{
+  width: 100%;
+  height: 100%;
+  background-color: white;
+}
+
+.image{
+  	width: 1241px;
+  	height: 1388px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center, center;
+}
+
+th {
+    background-color:lightgrey;
+}
+
+th, td {
+    border: solid 1px grey;
+    border-bottom-style: none;
+    border-right-style: none;
+    padding: 2px;
+}
+
+td:last-child {
+    border-right: solid 1px grey;
+    text-align: center;
+}
+
+th:last-child {
+    border-right: solid 1px grey;
+    text-align: center;
+}
+
+tr:last-child td {
+    border-bottom: solid 1px grey;
+}
+
+tr:last-child th {
+    border-bottom: solid 1px grey;
+}
+
+.tabla {
+    padding: 1px;
+}
+
+.list:last-child.card {
+    margin-bottom: 2px; 
+}
+
+.list .item.item-accordion {
+  line-height: 38px;
+  padding-top: 0;
+  padding-bottom: 0;
+  transition: 0.09s all linear;
+}
+.list .item.item-accordion.ng-hide {
+  line-height: 0px;
+}
+.list .item.item-accordion.ng-hide-add,
+.list .item.item-accordion.ng-hide-remove {
+  display: block !important;
+}
+
+.header .col {
+    background-color:lightgrey;
+}
+
+.col {
+    border: solid 1px grey;
+    border-bottom-style: none;
+    border-right-style: none;
+}
+
+.col:last-child {
+    border-right: solid 1px grey;
+}
+
+.item-accordion:last-child {
+  padding: 0 0 3px 0;
+}
+
+.row:last-child .col {
+    border-bottom: solid 1px grey;
+}
+
+.encabezado {
+    background-color: lightgrey;
+}
+.encabezado, .celda{
+    border: grey;
+    padding: 4px;
+    border-width: 1px;
+    border-style: solid;
+    font-size: 14px;                   
+}
+.asignatura{
+    font-size: 16px; 
+    font-weight: bold;
+    text-align:center;
+}
+
+.noticias-heading1 {
+    color: rgb(0, 0, 0); 
+    font-weight: 600;
+}
+
+.ion-input-select--large {
+  width:100%;
+  font-size: 16px;
+  background-image: url(http://i.imgur.com/7rGM4IX.png);
+  text-indent:30px;
+  padding: 6px 0;
+}

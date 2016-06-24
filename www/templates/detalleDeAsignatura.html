@@ -1,0 +1,221 @@
+<ion-view style="" id="page17" title="Detalle de Asignatura">
+    <ion-content padding="false" class="has-header">
+        <div class="row">
+            <div class="col encabezado asignatura">{{asig.asignatura}}</div>
+        </div>
+        <div class="row">
+            <div class="col encabezado" ng-click="toggleGroup(1)" ng-class="{active: isGroupShown(1)}" style="margin-top:3px;">
+                <i class="icon" ng-class="isGroupShown(1) ? 'ion-minus' : 'ion-plus'"></i>
+                <!--<i class="icon ion-ios-arrow-down" style="text-align:left; margin:7px;"></i>-->
+                <strong>Información básica</strong>
+            </div>
+        </div>
+        <div ng-show="isGroupShown(1)" style="margin-top: -10px">
+            <div class="row">
+                <div class="col-25 encabezado">Titulación</div>
+                <div class="col-75 celda">{{titulo_grado}}</div>
+            </div>
+            <div class="row">
+                <div class="col encabezado">Materia</div>
+            </div>
+            <div class="row">
+                <div class="col celda">{{asig.guia.materia}}</div>
+            </div>
+            <div class="row">
+                <div class="col encabezado">Módulo</div>
+            </div>
+            <div class="row">
+                <div class="col celda">{{asig.guia.modulo}}</div>
+            </div>
+            <div class="row">
+                <div class="col-33 encabezado">Modalidad</div>
+                <div class="col-33 encabezado">Carácter</div>
+                <div class="col-33 encabezado">Duración</div>
+            </div>
+            <div class="row">
+                <div class="col-33 celda">{{asig.guia.modalidad}}</div>
+                <div class="col-33 celda">{{asig.caracter}}</div>
+                <div class="col-33 celda">{{asig.guia.duracion}}</div>
+            </div>
+            <div class="row">
+                <div class="col-20 encabezado">Curso</div>
+                <div class="col-40 encabezado">Créditos ECTS</div>
+                <div class="col-40 encabezado">H. presenciales</div>
+            </div>
+            <div class="row">
+                <div class="col-20 celda">{{asig.curso}}</div>
+                <div class="col-40 celda">{{asig.ects}}</div>
+                <div class="col-40 celda">{{asig.guia.h_presenciales}}</div>
+            </div>
+            <div class="row">
+                <div class="col-60 encabezado">Trabajo autónomo (H):</div>
+                <div class="col-40 celda">{{asig.guia.h_trabajo_autonomo}}</div>
+            </div>
+            <div class="row">
+                <div class="col-60 encabezado">
+                    Idiomas de impartición:
+                </div>
+                <div class="col-40 celda">{{asig.guia.idioma_imparticion}}</div>
+            </div>
+            <div class="row">
+                <div class="col-60 encabezado">
+                    Idiomas del material:
+                </div>
+                <div class="col-40 celda">{{asig.guia.idioma_materiales}}</div>
+            </div>
+        </div>
+
+        <div ng-if="asig.guia.departamentos.length" class="row">
+            <div class="col encabezado" ng-click="toggleGroup(2)" ng-class="{active: isGroupShown(2)}">
+                <i class="icon" ng-class="isGroupShown(2) ? 'ion-minus' : 'ion-plus'"></i>
+                <strong>Deptos. Responsables</strong>
+            </div>
+        </div>
+        <div ng-show="isGroupShown(2)" style="margin-top: -10px">
+            <div ng-if="asig.guia.departamentos.length" ng-repeat="dep in asig.guia.departamentos" class="row">
+                <a ui-sref="departamentos" class="celda" style="width:100%; text-decoration:none;color:black;">
+                    {{dep.nombre}}
+                    <i class="icon ion-ios-arrow-right" style="font-size: 14px;float:right;"></i>
+                </a>
+            </div>
+        </div>
+
+            <div ng-if="asig.guia.responsable.id || asig.guia.profesores.length > 0" class="row">
+                <div class="col encabezado " ng-click="toggleGroup(3)" ng-class="{active: isGroupShown(3)}">
+                    <i class="icon" ng-class="isGroupShown(3) ? 'ion-minus' : 'ion-plus'"></i>
+                    <strong>Profesorado previsto</strong>
+                </div>
+            </div>
+        <div ng-show="isGroupShown(3)" style="margin-top: -10px" ng-controller="FullscreenProfesorCtrl">
+            <div ng-if="asig.guia.responsable.id" class="row">
+                <div class="col encabezado">Profesor / Responsable</div>
+            </div>
+            <div ng-if="asig.guia.responsable.id" class="row">
+                <div class="col celda" ng-click="showProfesor(asig.guia.responsable.id)">
+                    <i class="icon icon ion-eye"></i> 
+                    {{asig.guia.responsable.apellidos}}, {{asig.guia.responsable.nombre}}
+                </div>
+            </div>
+            <div ng-if="asig.guia.profesores.length > 0" class="row">
+                <div class="col encabezado">Profesores</div>
+            </div>
+            <div ng-if="asig.guia.profesores.length > 0" ng-repeat="profes in asig.guia.profesores" class="row">
+                <div class="col celda" ng-click="showProfesor(profes.id)">
+                    <i class="icon icon ion-eye"></i> 
+                    {{profes.apellidos}}, {{profes.nombre}}
+                </div>
+            </div>
+        </div>
+            <div class="row">
+                <div class="col encabezado " ng-click="toggleGroup(4)" ng-class="{active: isGroupShown(4)}">
+                    <i class="icon" ng-class="isGroupShown(4) ? 'ion-minus' : 'ion-plus'"></i>
+                    <strong>Temario</strong>
+                </div>
+            </div>
+            <div class="row" ng-show="isGroupShown(4)" style="margin-top: -5px">
+                <div class="col celda" ng-bind-html="temario"></div>
+            </div>
+            <div class="row">
+                <div class="col encabezado" ng-click="toggleGroup(5)" ng-class="{active: isGroupShown(5)}" style="margin-top:10px;">
+                    <i class="icon" ng-class="isGroupShown(5) ? 'ion-minus' : 'ion-plus'"></i>
+                    <strong>Evaluación</strong>
+                </div>
+            </div>
+        <div ng-show="isGroupShown(5)" style="margin-top: -10px">
+            <div class="row">
+                <div class="col-60 encabezado">Actividades presenciales</div>
+                <div class="col-40 encabezado" style="text-align:center;">
+                    Recuperable
+                    <div class="row">
+                        <div class="col-50">Sí</div>
+                        <div class="col-50">No</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row" ng-repeat="criterio in asig.guia.evaluacion">
+                <div class="col-60 celda">{{criterio.actividad}}</div>
+                <div class="col-20 celda">{{criterio.recuperable.si}}</div>
+                <div class="col-20 celda">{{criterio.recuperable.no}}</div>
+            </div>
+            <div class="row">
+                <div class="col-80 encabezado" style="text-align:right;"><strong>Total</strong></div>
+                <div class="col-20 encabezado"><strong>100%</strong></div>
+            </div>
+
+            <div class="row">
+                <div class="col celda"><strong>Comentarios</strong></div>
+            </div>
+            <div class="row" ng-show='asig.guia.comentarios_evaluacion!=""'>
+                <div class="col celda" ng-bind-html="comentarios"></div>
+            </div>
+            <div class="row" ng-show='asig.guia.comentarios_evaluacion==""'>
+                <div class="col celda">Sin comentarios</div>
+            </div>
+            <div class="row">
+                <div class="col celda"><strong>Criterios Críticos</strong></div>
+            </div>
+            <div class="row" ng-show='asig.guia.criterios_criticos!=""'>
+                <div class="col celda" ng-bind-html="criterios"></div>
+            </div>
+            <div class="row" ng-show='asig.guia.criterios_criticos==""'>
+                <div class="col celda">Sin criterios críticos</div>
+            </div>
+            </div>
+            <div class="row">
+                <a href="{{asig.url}}" target="_blank" class="col encabezado" style="text-decoration:none; color:black">
+                    <i class="icon ion-information-circled"></i><strong> Más información</strong>
+                </a>
+            </div>
+
+        <script id="profesor-modal.html" type="text/ng-template">
+            <div class="modal image-modal transparent" ng-click="closeModal()">
+                <ion-pane class="transparent">
+                    <div class="list" style="padding-top: 1px; padding-bottom: 1px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); margin: 5px 5px; border-radius: 2px; background-color: #fff;">
+                        <div class="item item-divider item-icon-left">
+                            <i class="icon ion-ios-person"></i>
+                            {{profesor.apellidos}}, {{profesor.nombre}}
+
+                        </div>
+                        <div class="item" style="text-align:center;display: block;">
+                            <strong>{{profesor.depto}}</strong>
+                            <br>
+                            <spam style="font-size:14px">
+                                {{profesor.edificio}}: {{profesor.despacho}}
+                                <br>{{profesor.direccion}}
+                            </spam>
+                        </div>
+                        <a ng-show='profesor.telefono!=""' href="tel:{{profesor.telefono}}" class="item icon-left ion-ios-telephone button-assertive">
+                            &nbsp; Teléfono: {{profesor.telefono}}
+                        </a>
+                        <a ng-show='profesor.email!=""' href="mailto:{{profesor.email}}" class="item icon-left ion-ios-email">
+                            &nbsp; Email: {{profesor.email}}
+                        </a>
+                        <div class="item item-divider icon-left ion-ios-clock">
+                            &nbsp; Tutorías
+                        </div>
+                        <div class="row" ng-show='profesor.tlunes!=""'>
+                            <div class="col-25 celda">Lunes</div>
+                            <div class="col-75 celda">{{profesor.tlunes}}</div>
+                        </div>
+                        <div class="row" ng-show='profesor.tmartes!=""'>
+                            <div class="col-25 celda">Martes</div>
+                            <div class="col-75 celda">{{profesor.tmartes}}</div>
+                        </div>
+                        <div class="row" ng-show='profesor.tmiercoles!=""'>
+                            <div class="col-25 celda">Miércoles</div>
+                            <div class="col-75 celda">{{profesor.tmiercoles}}</div>
+                        </div>
+                        <div class="row" ng-show='profesor.tjueves!=""'>
+                            <div class="col-25 celda">Jueves</div>
+                            <div class="col-75 celda">{{profesor.tjueves}}</div>
+                        </div>
+                        <div class="row" ng-show='profesor.tviernes!=""'>
+                            <div class="col-25 celda">Viernes</div>
+                            <div class="col-75 celda">{{profesor.tviernes}}</div>
+                        </div>
+                      </div>
+</ion-pane>
+            </div>
+        </script>
+</ion-content>
+</ion-view>

@@ -1,0 +1,15 @@
+<ion-view style="" id="page29" title="Noticias">
+    <ion-content padding="false" class="manual-remove-top-padding has-header">
+        <div style="" class="list card" ng-repeat="noticia in noticias">
+            <div class="item item-divider"><i class="icon ion-ios-person"></i> Publicada por: {{noticia.author}}</div>
+            <div class="item item-body" ng-click="verNoticia(noticia)">
+                <h2 id="noticias-heading1">{{noticia.title}}</h2>
+                <div style="color: rgb(0, 0, 0); text-align: justify;" id="noticias-markdown1">
+                    <p>{{noticia.contentSnippet}}</p>
+                </div>
+            </div>
+            <div class="item"><i class="icon ion-calendar"></i> {{formatFecha(noticia)}}</div>
+        </div>
+
+    </ion-content>
+</ion-view>

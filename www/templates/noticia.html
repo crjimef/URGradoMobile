@@ -1,0 +1,16 @@
+<ion-view style="" id="page5" title="Noticia">
+    <style>
+        img {
+            text-align: center;
+            width: 100% !important;
+            height: auto !important;
+        }
+    </style>
+    <ion-content class="has-header" padding="false">
+        <div class="item item-divider item-body" style="font-size:16px; text-align:center">{{noticia.title}}</div>
+        <div class="item item-body" ng-bind-html="contNoticia"></div>
+        <a class="item icon-left" href="{{noticia.link}}" target="_blank"><i class="icon ion-information-circled"></i> Ir a la noticia</a>
+        <div class="item"><i class="icon ion-ios-person"></i> Publicada por: {{noticia.author}}</div>
+        <div class="item"><i class="icon ion-calendar"></i> {{formatFecha(noticia)}}</div>
+    </ion-content>
+</ion-view>

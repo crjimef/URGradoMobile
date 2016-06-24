@@ -1,0 +1,14 @@
+<ion-view style="" id="page2" title="{{grado.attachments[0].title}}">
+    <ion-content padding="true" class="has-header">
+        <img ng-show="grado!=null" style="display: block; margin-left: auto; margin-right: auto;" src="{{grado.thumbnail}}" height="auto" width="100%">
+        <div ng-show="grado!=null" ng-bind-html="html"></div>
+        <a ng-show="grado!=null" class="item icon-left ion-social-youtube" href="{{videoURL}}"> Ver presentación</a>
+        <div class="list" ng-show="mi_estructura!=null">
+            <div class="item item-divider text-center">ESTRUCTURA</div>
+            <div class="tabla" ng-bind-html="mi_estructura"></div>
+            <p style="padding: 4px; font-size: 12px;">{{nota_estructura}}</p>
+            <div class="item item-divider text-center">MENCIONES E ITINERARIOS</div>
+            <div class="" ng-bind-html="menciones" style="padding: 4px; text-align:justify;"></div>
+        </div>
+    </ion-content>
+</ion-view>

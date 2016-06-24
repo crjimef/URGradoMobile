@@ -1,0 +1,29 @@
+<ion-view style="" id="page6" title="{{grado.attachments[0].title}}">
+    <ion-content padding="false" class="manual-remove-top-padding has-header">
+        <ion-list>
+            <div ng-repeat="group in groups">
+                <ion-item ng-if="group.length>0" class="item-stable"
+                          ng-click="toggleGroup(group)"
+                          ng-class="{active: isGroupShown(group)}">
+                    <i class="icon" ng-class="isGroupShown(group) ? 'ion-minus' : 'ion-plus'"></i>
+                    &nbsp;
+                    {{group.name}}
+                </ion-item>
+                <div class="item-accordion"
+                     ng-repeat="asig in group"
+                     ng-show="isGroupShown(group)">
+                    <div ng-if="$first" class="row header" style="margin:0; padding:3px 0 0 0;">
+                            <div class="col col-10" style="text-align: center">S</div>
+                            <div class="col col-75">Asignatura</div>
+                            <div class="col col-15">ECTS</div>
+                    </div>
+                        <div class="row" style="margin:0; padding:0;" ng-click="verGuia(asig)" ui-sref="detalleDeAsignatura">
+                            <div class="col col-10" style="text-align: center">{{asig.periodo}}</div>
+                            <div class="col col-75"><i class="icon icon ion-eye"></i> {{asig.asignatura}}</div>
+                            <div class="col col-15" style="text-align: center">{{asig.ects}}</div>
+                        </div>
+                </div>
+            </div>
+        </ion-list>
+    </ion-content>
+</ion-view>

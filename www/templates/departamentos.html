@@ -1,0 +1,19 @@
+<ion-view style="" id="page12" title="Departamentos">
+    <ion-content padding="false" class="manual-remove-top-padding has-header">
+        <div>
+            <img style="display: block; margin-left: auto; margin-right: auto;" src="img/Snv0ft2zSouiXrmHqjhn_departamental.jpg" height="auto" width="100%">
+        </div>
+            <div class="list">
+
+                <div class="item item-divider">
+                    Departamentos
+                </div>
+                    <div ng-repeat="departamento in departamentos">
+                        <a class="item item-icon-right" href="#/departamento/:{{departamento.slug}}">
+                            {{departamento.title}}
+                            <i class="icon ion-ios-arrow-right"></i>
+                        </a>
+                    </div>                
+            </div>
+    </ion-content>
+</ion-view>
